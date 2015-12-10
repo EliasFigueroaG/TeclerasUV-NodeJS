@@ -59,6 +59,20 @@
         <%}%>
       </div> 
     </table>
+    <form  method="post" action="/enviarrespuesta" >
+    <div align= "center">
+      <a  href='/docente/confirm/<%=codigo%>/<%=preguntas[i].id%>' ></a>
+      <!--<input name="" type="text" > -->
+      <input name="idPregunta" type="hidden" value="<%=preguntas[0].id%>">
+      <input name="codigo" type="hidden" value="<%=codigo%>">
+      
+      
+      <br>
+      <br>
+      <br>
+      <!--<button onclick="goBack()">Volver</button>-->
+    </div>  
+    </form>
 
     <br><br><br>
 

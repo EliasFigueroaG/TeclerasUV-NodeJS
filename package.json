@@ -13,7 +13,7 @@
     "connect-multiparty": "2.0.0",
     "cookie-session": "1.2.0",
     "ejs": "2.3.4",
-    "express": "4.13.3",
+    "express": "^4.13.3",
     "glob": "5.0.15",
     "morgan": "1.6.1",
     "mysql": "2.9.0",
