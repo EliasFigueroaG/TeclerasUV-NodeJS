@@ -1,5 +1,20 @@
 <% include header %>
 
-<h1>Realizar Pregunta</h1>
+<div class="row row-centered">
+  
+  <div align= "center">
+       <a  href='/docente/realizar/<%=idasig%>/<%=idpara%><' type="button" class="btn btn-primary" >Enviar pregunta</a>
+      <br>
+      <br>
+      <br>
+      <button onclick="goBack()">Volver</button>
+    </div>  
+  
+</div>
 
+<script>
+  function goBack() {
+      window.history.back();
+  }
+  </script>
 <% include footer %>

@@ -28,9 +28,13 @@ module.exports = function(app) {
           id: asignaturas_res[i].ASI_ID,
           nombre: asignaturas_res[i].ASI_NOMBRE,
           codigo: asignaturas_res[i].ASI_CODIGO,
-          paralelo: asignaturas_res[i].PAR_NUMERO
+          paralelo: asignaturas_res[i].PAR_NUMERO,
+          paralelo_id: asignaturas_res[i].PAR_ID
         })
       }
+
+      request.session.codigoclase = null;
+
       response.render('docenteconsultar', {
         asignaturas: asignaturas
       });

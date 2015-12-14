@@ -1,13 +1,88 @@
 <% include header %>
+  <section>
 
-<h1>Analizar Pregunta</h1>
-<h3>Lista de Ramo</h3>
-<h4>Seleccione una Pregunta</h4>
+    
+    <div align="center" >
+    <h3>Codigo clase:</h3><h1> <%=codigo%></h1>
+      <h1>Lista de Preguntas</h1>
 
-<span>Preguntas</span>
-<form action="/docente/ver/respuestas" method="get">
-<% include seleccionarpregunta %>
-</form>
+      
+    </div>
+    
+
+
+    <div class="container"  width=60% >
+      <a href="/docente/menu" target="_blank"><img src="your/image" /></a>      
+      <form class="tipo1" action="/buscarpalabra" method="post" >
+        <label>Buscar por palabra clave </label>
+        <input type="text" name="keyword" placeholder="Escriba un texto" required>
+      
+        <input type="hidden" name="idasig" value=<%=idasig%> >
+        <input type="hidden" name="idpara" value=<%=idpara%> >
+        <input type="hidden" name="idcla" value=<%=idclase%> >
+
+         
+        <input type="image" onclick="submit();" src="/public/images/lupa.png" width="20px" height="20px"><br/>
+      </form>
+      
+      <form class="tipo1" action="/buscarfecha" method="post">
+
+        <input type="hidden" name="idasig" value=<%=idasig%> >
+        <input type="hidden" name="idpara" value=<%=idpara%> >
+        <input type="hidden" name="idcla" value=<%=idclase%> >
+
+        <label>Buscar por fecha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+        Desde<input type="date" name="mindate" />   
+        Hasta<input type="date" name="maxdate"  />
+        <input type="image" onclick="submit();" src="/public/images/lupa.png" width="20px" height="20px"><br/>
+      </form>
+
+      <form class="tipo1" action="/buscartipo" method="post">
+        <label> Tipo de pregunta </label>
+
+        <input type="hidden" name="idasig" value=<%=idasig%> >
+        <input type="hidden" name="idpara" value=<%=idpara%> >
+        <input type="hidden" name="idcla" value=<%=idclase%> >
+
+        <select name="tipopreg">
+          <option value="default">Tipo pregunta</option>
+          <option value="1">Alternativas</option>
+          <option value="2">Dicotómica</option>
+          <option value="3">Escala de Likert</option>           
+        </select>
+        <input type="image" onclick="submit();" src="/public/images/lupa.png" width="20px" height="20px"><br/>
+      </form>
+    </div>
+    
+    <table style="width:60%" align="center" >
+      <tr>
+        <th>Titulo</th>
+        <th>Tipo</th> 
+        <th>Vista Previa</th>
+        <th>Seleccionar</th>
+      </tr>
+      <div style="height:100px;overflow:auto;">
+        <%for(i in preguntas){%>
+          <tr>
+            <td><%=preguntas[i].nombre%></td>
+            <td><%=preguntas[i].tipo%></td> 
+            <td align="center">
+                <a href='/docente/confirm/<%=preguntas[i].id%>/<%=idclase%>/<%=idasig%>/<%=idpara%>'><img src="/public/images/vistaprevia.png" width="30px" height="30px"></a>
+            </td>
+            <td align="center">
+                <a href='/docente/confirm/<%=preguntas[i].id%>/<%=idclase%>/<%=idasig%>/<%=idpara%>'><img src="/public/images/sharelogo.png" width="30px" height="30px"></a>
+            </td>
+          </tr>
+        <%}%>
+      </div> 
+    </table>
+
+    <br><br><br>
+
+
+ 
+
+</section>
 
 <% include linkmenudocente %>
 <% include footer %>
